@@ -6,6 +6,7 @@ import Home from "./components/home";
 import Posts from "./components/posts";
 import Profile from "./components/profile";
 import PostItem from "./components/post_item";
+import LifeCycles from "./components/lifecycles";
 
 const App = () => {
   return (
@@ -18,12 +19,14 @@ const App = () => {
           <br />
           <Link to="/profile">Profile</Link>
           <br />
+          <Link to="/lifecycles">Life</Link>
           <hr />
         </header>
         <Switch>
           <Route path="/posts/:id/:username" component={PostItem} />
           <Route path="/posts" exact component={Posts} />
           <Route path="/profile" component={Profile} />
+          <Route path="/lifecycles" component={LifeCycles}/>
           <Route path="/" exact component={Home} />
           <Route render={() => <h3>OOps 404 Error!!!</h3>} />
           {/** This will check the routes if it is not fined any routes it will return the 404 error */}
