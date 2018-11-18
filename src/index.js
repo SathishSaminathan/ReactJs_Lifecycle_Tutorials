@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 
 import Home from "./components/home";
 import Posts from "./components/posts";
@@ -20,10 +20,26 @@ const App = () => {
           <br />
           <hr />
         </header>
-        <Route path="/" exact component={Home} />
-        <Route path="/posts" exact component={Posts} />        
-        <Route path="/posts/:id/:username" component={PostItem} /> {/**In the we are passing the params to the  component "PostItem" which can be accessed by the props. ":" is used to pass the value */}
-        <Route path="/profile" component={Profile} />
+        <Switch>
+          {/** If we are using the switch we dont need to use exact, 
+          The Switch acts same as the javascript switch. 
+          If we are putting the "/posts" before the "/posts/:id/:username", 
+          the "/posts/:id/:username" won't  work because the switch matches the "/posts" and renders it.
+          We need to put the "/posts/:id/:username" at first.
+          More specific statement at first and less specific statement at last and then it will work just fine.*/}
+          
+          {/** It will work fine */}
+          <Route path="/posts/:id/:username" component={PostItem} />
+          <Route path="/posts" exact component={Posts} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/" exact component={Home} />
+
+          {/** It won't work */}
+          {/* <Route path="/" component={Home} />
+          <Route path="/posts" component={Posts} />
+          <Route path="/posts/:id/:username" component={PostItem} />{" "}
+          <Route path="/profile" component={Profile} /> */}
+        </Switch>
       </div>
     </BrowserRouter>
   );
