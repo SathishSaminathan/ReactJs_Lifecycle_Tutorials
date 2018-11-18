@@ -21,24 +21,12 @@ const App = () => {
           <hr />
         </header>
         <Switch>
-          {/** If we are using the switch we dont need to use exact, 
-          The Switch acts same as the javascript switch. 
-          If we are putting the "/posts" before the "/posts/:id/:username", 
-          the "/posts/:id/:username" won't  work because the switch matches the "/posts" and renders it.
-          We need to put the "/posts/:id/:username" at first.
-          More specific statement at first and less specific statement at last and then it will work just fine.*/}
-          
-          {/** It will work fine */}
           <Route path="/posts/:id/:username" component={PostItem} />
           <Route path="/posts" exact component={Posts} />
           <Route path="/profile" component={Profile} />
           <Route path="/" exact component={Home} />
-
-          {/** It won't work */}
-          {/* <Route path="/" component={Home} />
-          <Route path="/posts" component={Posts} />
-          <Route path="/posts/:id/:username" component={PostItem} />{" "}
-          <Route path="/profile" component={Profile} /> */}
+          <Route render={() => <h3>OOps 404 Error!!!</h3>} />
+          {/** This will check the routes if it is not fined any routes it will return the 404 error */}
         </Switch>
       </div>
     </BrowserRouter>
