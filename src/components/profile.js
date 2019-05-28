@@ -14,7 +14,7 @@ const Profile = props => {
             pathname: `${props.match.url}/posts` // Getting Dynamic link using template string
           }}
         >
-          Here is the link to /profile/posts
+          Here is the link to {`${props.match.url}/posts`}
         </Link>
       </Card>
     </Auth>

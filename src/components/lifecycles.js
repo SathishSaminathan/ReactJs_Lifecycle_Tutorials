@@ -10,32 +10,37 @@ class LifeCycles extends PureComponent {
 
   //3 before render
   componentWillMount() {
-    console.log("3 before render...");
+    console.log("3 before render...componentWillMount");
     // document.querySelector('h3').style.color="red" it won't work because this is called before the render so the "h3" tag is not available in the DOM
   }
 
   //5 after render
   componentDidMount() {
-    console.log("5 after render...");
+    console.log("5 after render...componentDidMount");
     document.querySelector("h3").style.color = "red"; // it will work because this is called after the render
   }
 
   // Before getting Updated
   componentWillUpdate() {
-    console.log("Before Update..."); 
+    console.log("Before Update...componentWillUpdate");
   }
 
   // After getting Updated
   componentDidUpdate() {
-    console.log("After Update...");
+    console.log("After Update...componentDidUpdate");
   }
 
   shouldComponentUpdate(nextProps, nextState) {
+    console.log(
+      "Should Component Update???....",
+      nextState.title !== this.state.title
+    );
+    
     /** it will get called if there is any update like if there is any state changes,
      *  if it returns true,
-     *  then it will proceed to "componentWillUpdate(), componentDidUpdate()" functions 
-     **/ 
-    console.log(nextState);
+     *  then it will proceed to "componentWillUpdate(), componentDidUpdate()" functions
+     **/
+
     if (nextState.title !== this.state.title) {
       return true;
     } else {
@@ -44,13 +49,13 @@ class LifeCycles extends PureComponent {
   }
 
   // When receiving new props or getting called again
-  componentWillReceiveProps(){
-      console.log("When the Component re-renders....") // it will get called when the same component re-renders or getting new props
+  componentWillReceiveProps() {
+    console.log("When the Component re-renders....componentWillReceiveProps"); // it will get called when the same component re-renders or getting new props
   }
 
   // While leaving this component
-  componentWillUnmount(){
-        console.log("Unmounted...") // it will called when we going out of the component
+  componentWillUnmount() {
+    console.log("Unmounted...componentWillUnmount"); // it will called when we going out of the component
   }
 
   // 4 render
