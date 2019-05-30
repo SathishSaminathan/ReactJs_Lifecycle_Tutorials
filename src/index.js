@@ -8,10 +8,12 @@ import Profile from "./components/profile";
 import PostItem from "./components/post_item";
 import LifeCycles from "./components/lifecycles";
 import Conditional from "./components/conditional";
+import MouseHover from "./components/reactMouseHover";
 
 const App = () => {
   return (
-    <LifeCycles/>
+    // <LifeCycles/>
+    <MouseHover/>
     // <BrowserRouter>
     //   <div>
     //     <header>

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,OAAO,CAAA;EACH,KAAK,EAAE,MAAM;CAChB;;AACD,AAAA,YAAY,CAAA;EACR,SAAS,EAAE,IAAI;CAClB",
+    "sources": [
+        "mouseHover.scss"
+    ],
+    "names": [],
+    "file": "mouseHover.css"
+}
